@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unpacking OZ 2.0 for Sustainability and Equity | Field Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@300;400;600&family=Source+Serif+4:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:   #1B2A4A;
+    --teal:   #0D7A6E;
+    --gold:   #C8922A;
+    --coral:  #B85042;
+    --slate:  #4A5568;
+    --silver: #F0F4F8;
+    --muted:  #8A97A8;
+    --white:  #FFFFFF;
+    --border: #D8E0EA;
+    --purple: #5C4B9E;
+    --text:   #1E2A3A;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--silver);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--navy);
+    color: var(--white);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 3px solid var(--teal);
+  }
+  .header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .site-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+  }
+  .site-title span {
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 300;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .header-badge {
+    background: var(--teal);
+    color: var(--white);
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+
+  /* ── NAV TABS ── */
+  .tab-nav {
+    background: var(--navy);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .tab-nav::-webkit-scrollbar { display: none; }
+  .tab-list {
+    display: flex;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 16px;
+    gap: 0;
+  }
+  .tab-btn {
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .tab-btn:hover { color: var(--white); }
+  .tab-btn.active {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
+  /* ── CONTENT ── */
+  .content-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 16px 60px;
+  }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── SECTION TITLES ── */
+  .section-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 6px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .section-intro {
+    color: var(--slate);
+    font-size: 0.95rem;
+    max-width: 640px;
+    margin-bottom: 28px;
+    line-height: 1.65;
+  }
+
+  /* ── DEFINITION CARDS ── */
+  .def-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  @media (min-width: 600px) {
+    .def-grid { grid-template-columns: 1fr 1fr; }
+    .def-grid.three-col { grid-template-columns: 1fr 1fr 1fr; }
+  }
+  .def-card {
+    background: var(--white);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    padding: 18px 20px;
+    border-top: 4px solid var(--teal);
+    transition: box-shadow 0.2s;
+  }
+  .def-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+  .def-card.accent-purple { border-top-color: var(--purple); }
+  .def-card.accent-gold   { border-top-color: var(--gold); }
+  .def-card.accent-coral  { border-top-color: var(--coral); }
+  .def-card.accent-navy   { border-top-color: var(--navy); }
+  .def-card.accent-teal   { border-top-color: var(--teal); }
+  .def-term {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 3px;
+    line-height: 1.3;
+  }
+  .def-abbr {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .def-text {
+    font-size: 0.9rem;
+    color: var(--slate);
+    line-height: 1.65;
+  }
+  .def-tag {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-top: 10px;
+  }
+  .tag-new    { background: #E6F5F2; color: var(--teal); }
+  .tag-update { background: #FBF3E3; color: var(--gold); }
+  .tag-ended  { background: #FBEAEA; color: var(--coral); }
+  .tag-stable { background: #EEF0F8; color: var(--navy); }
+
+  /* ── CALLOUT BOX ── */
+  .callout {
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--teal);
+    background: #E6F5F2;
+  }
+  .callout.gold  { border-left-color: var(--gold);  background: #FBF3E3; }
+  .callout.coral { border-left-color: var(--coral); background: #FBEAEA; }
+  .callout.navy  { border-left-color: var(--navy);  background: #EEF2F8; }
+  .callout-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 6px;
+  }
+  .callout.gold  .callout-label { color: var(--gold); }
+  .callout.coral .callout-label { color: var(--coral); }
+  .callout.navy  .callout-label { color: var(--navy); }
+  .callout p { font-size: 0.9rem; color: var(--slate); line-height: 1.65; }
+  .callout strong { color: var(--navy); }
+
+  /* ── PLANNING MATRIX ── */
+  .matrix-wrap { overflow-x: auto; margin-bottom: 28px; -webkit-overflow-scrolling: touch; }
+  .matrix-table {
+    width: 100%;
+    min-width: 620px;
+    border-collapse: collapse;
+    font-size: 0.84rem;
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .matrix-table th {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 12px 14px;
+    text-align: left;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+  .matrix-table th:first-child { background: var(--teal); }
+  .matrix-table td {
+    padding: 11px 14px;
+    vertical-align: top;
+    border: 1px solid var(--border);
+    color: var(--slate);
+    line-height: 1.55;
+  }
+  .matrix-table tr:nth-child(even) td { background: #F8FAFC; }
+  .matrix-table td:first-child {
+    font-weight: 600;
+    color: var(--navy);
+    background: #EEF2F8;
+    border-right: 2px solid var(--border);
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+  }
+  .matrix-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--teal);
+    background: #E6F5F2;
+    padding: 1px 7px;
+    border-radius: 20px;
+    margin: 2px 2px 0 0;
+    white-space: nowrap;
+  }
+
+  /* ── ACTION STEPS ── */
+  .steps-list { list-style: none; margin-bottom: 28px; }
+  .step-item {
+    display: flex;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .step-item:last-child { border-bottom: none; }
+  .step-num {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .step-num.teal  { background: var(--teal); }
+  .step-num.gold  { background: var(--gold); }
+  .step-num.coral { background: var(--coral); }
+  .step-body { flex: 1; }
+  .step-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 5px;
+    line-height: 1.3;
+  }
+  .step-desc { font-size: 0.9rem; color: var(--slate); line-height: 1.65; }
+  .step-tools {
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .tool-pill {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    color: var(--slate);
+    background: var(--silver);
+  }
+
+  /* ── STATUS TABLE ── */
+  .status-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    font-size: 0.88rem;
+    margin-bottom: 28px;
+  }
+  .status-table th {
+    background: var(--navy);
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 11px 14px;
+    text-align: left;
+  }
+  .status-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+    color: var(--slate);
+  }
+  .status-table tr:last-child td { border-bottom: none; }
+  .status-table tr:nth-child(even) td { background: #F8FAFC; }
+  .status-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .badge-permanent { background: #E6F5F2; color: #0D7A6E; }
+  .badge-unchanged { background: #EEF0F8; color: #5C4B9E; }
+  .badge-enhanced  { background: #FBF3E3; color: #C8922A; }
+  .badge-ended     { background: #FBEAEA; color: #B85042; }
+
+  /* ── OPAL CASE STUDY ── */
+  .org-chart {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .org-parent {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .org-parent-sub {
+    font-size: 0.75rem;
+    color: var(--gold);
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400;
+    display: block;
+    margin-top: 3px;
+  }
+  .org-connector {
+    width: 2px;
+    height: 24px;
+    background: var(--border);
+    margin: 0 auto;
+  }
+  .org-branches {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 0;
+  }
+  .org-child {
+    border-radius: 8px;
+    padding: 14px 16px;
+    text-align: left;
+  }
+  .org-child.teal { background: #E6F5F2; border: 1px solid #9FD9D0; }
+  .org-child.gold { background: #FBF3E3; border: 1px solid #EDCB82; }
+  .org-child-title {
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: var(--navy);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+  .org-child-type {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .org-child-items {
+    font-size: 0.8rem;
+    color: var(--slate);
+    line-height: 1.6;
+  }
+  .org-child-items li {
+    list-style: none;
+    padding-left: 14px;
+    position: relative;
+  }
+  .org-child-items li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-size: 0.75rem;
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--navy);
+    color: var(--muted);
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 0.8rem;
+    line-height: 1.7;
+  }
+  .site-footer a { color: var(--gold); text-decoration: none; }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 28px 0;
+  }
+
+  /* ── SUBHEADING ── */
+  .subheading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 14px;
+    margin-top: 28px;
+  }
+  .subheading:first-of-type { margin-top: 0; }
+
+  /* ── BIO SECTION ── */
+  .bio-card {
+    background: var(--white);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .bio-header {
+    background: var(--navy);
+    padding: 28px 28px 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 22px;
+  }
+  .bio-avatar {
+    flex-shrink: 0;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--white);
+    border: 3px solid var(--gold);
+  }
+  .bio-name-block { flex: 1; }
+  .bio-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 5px;
+  }
+  .bio-title {
+    font-size: 0.85rem;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 3px;
+  }
+  .bio-institution {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-weight: 400;
+  }
+  .bio-body {
+    padding: 24px 28px;
+  }
+  .bio-body p {
+    font-size: 0.93rem;
+    color: var(--slate);
+    line-height: 1.72;
+    margin-bottom: 14px;
+  }
+  .bio-body p:last-child { margin-bottom: 0; }
+  .bio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 520px) {
+    .bio-grid { grid-template-columns: 1fr; }
+    .bio-header { flex-direction: column; align-items: center; text-align: center; }
+  }
+  .bio-stat {
+    background: var(--silver);
+    border-radius: 8px;
+    padding: 14px 16px;
+    border-left: 3px solid var(--teal);
+  }
+  .bio-stat-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .bio-stat-value {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.4;
+  }
+  .bio-contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    margin-top: 20px;
+  }
+  .bio-contact-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--navy);
+    background: var(--silver);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 6px 14px;
+    text-decoration: none;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .bio-contact-pill:hover {
+    background: #E6F5F2;
+    border-color: var(--teal);
+    color: var(--teal);
+  }
+  .bio-contact-pill svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+  .research-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+    border-left: 4px solid var(--navy);
+  }
+  .research-card.teal { border-left-color: var(--teal); }
+  .research-card.gold { border-left-color: var(--gold); }
+  .research-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+    line-height: 1.35;
+  }
+  .research-meta {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+  .research-desc {
+    font-size: 0.88rem;
+    color: var(--slate);
+    line-height: 1.65;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="site-title">
+      OZ 2.0 for Planners
+      <span>National Planning Conference · April 25, 2026</span>
+    </div>
+    <div class="header-badge">Field Reference</div>
+  </div>
+</header>
+
+<nav class="tab-nav" role="navigation" aria-label="Sections">
+  <div class="tab-list">
+    <button class="tab-btn active" onclick="showTab('definitions', this)">Definitions</button>
+    <button class="tab-btn" onclick="showTab('matrix', this)">Planning Matrix</button>
+    <button class="tab-btn" onclick="showTab('actions', this)">Action Steps</button>
+    <button class="tab-btn" onclick="showTab('status', this)">Tool Status</button>
+    <button class="tab-btn" onclick="showTab('opal', this)">OPAL Model</button>
+    <button class="tab-btn" onclick="showTab('bio', this)">About</button>
+  </div>
+</nav>
+
+<main class="content-wrap">
+
+  <!-- ══════════════════════════════════════════════════════════ DEFINITIONS -->
+  <section id="definitions" class="tab-panel active">
+    <p class="section-eyebrow">Section 01</p>
+    <h1 class="section-title">Key Terms &amp; Concepts</h1>
+    <p class="section-intro">Core vocabulary for working with Opportunity Zones 2.0, development finance, and the planning tools most relevant under OBBBA.</p>
+
+    <h2 class="subheading">Tax Incentive Programs</h2>
+    <div class="def-grid">
+      <div class="def-card accent-purple">
+        <div class="def-term">Opportunity Zones</div>
+        <div class="def-abbr">OZ / QOZ</div>
+        <div class="def-text">Low-income census tracts designated for increased private investment through capital gains tax relief. Established by the Tax Cuts and Jobs Act of 2017. Now permanent under OBBBA — redesignated every ten years. Must be below 70% of median state or metro area income (down from 80% under OZ 1.0).</div>
+        <div class="def-tag tag-update">Updated by OBBBA</div>
+      </div>
+      <div class="def-card accent-purple">
+        <div class="def-term">Opportunity Funds</div>
+        <div class="def-abbr">QOF — Qualified Opportunity Fund</div>
+        <div class="def-text">Investment vehicles — organized as corporations or partnerships — that must hold at least 90% of assets in qualified OZ property. Investors roll capital gains into these funds within 180 days of a gain event. The fund delivers tax deferral, step-up in basis, and potential full elimination of gains after 10 years.</div>
+        <div class="def-tag tag-stable">Permanent</div>
+      </div>
+      <div class="def-card accent-navy">
+        <div class="def-term">Step-Up in Basis</div>
+        <div class="def-abbr">The core tax benefit mechanism</div>
+        <div class="def-text">The reduction in taxable capital gains achieved by holding an OZ investment over time. Under OZ 2.0: <strong>10% step-up</strong> in urban OZs after 5 years; <strong>30% step-up</strong> in rural OZs after 5 years. After <strong>10 years: 100% step-up in all OZs</strong> — gains on the OZ investment are fully eliminated.</div>
+        <div class="def-tag tag-update">Rural bonus new in OZ 2.0</div>
+      </div>
+      <div class="def-card accent-teal">
+        <div class="def-term">Low-Income Housing Tax Credit</div>
+        <div class="def-abbr">LIHTC</div>
+        <div class="def-text">Dollar-for-dollar federal tax credit for affordable housing development, established 1986. OBBBA permanently increased 9% allocations by 12% and lowered the bond financing threshold from 50% to 25% — the largest LIHTC expansion in decades. Estimated to finance 1.22 million new affordable homes by 2035.</div>
+        <div class="def-tag tag-update">Significantly expanded</div>
+      </div>
+      <div class="def-card accent-teal">
+        <div class="def-term">New Markets Tax Credit</div>
+        <div class="def-abbr">NMTC</div>
+        <div class="def-text">A 39% federal tax credit over seven years for investments through Community Development Entities (CDEs) in low-income communities. Made permanent by OBBBA at $5 billion per year — no longer subject to periodic reauthorization. Key gap-filling tool for commercial, mixed-use, and community facility projects.</div>
+        <div class="def-tag tag-new">Now permanent</div>
+      </div>
+      <div class="def-card accent-gold">
+        <div class="def-term">Historic Tax Credit</div>
+        <div class="def-abbr">HTC / IRC §47</div>
+        <div class="def-text">A 20% federal income tax credit for rehabilitation of certified historic structures. Administered by the National Park Service and IRS. <strong>Was NOT eliminated or modified by OBBBA</strong> — remains fully available and is an active capital stacking partner for OZ and NMTC deals. H.R. 2941 (2025) proposes enhancements.</div>
+        <div class="def-tag tag-stable">Unchanged — still available</div>
+      </div>
+    </div>
+
+    <h2 class="subheading">Finance Structures</h2>
+    <div class="def-grid">
+      <div class="def-card accent-navy">
+        <div class="def-term">Capital Stacking</div>
+        <div class="def-text">The strategic layering of multiple financing sources — senior debt, mezzanine debt, preferred equity, common equity, grants, and tax credits — each with its own risk and return profile. Each layer is repaid in priority order. Community development projects often require 6–10 funding sources assembled simultaneously.</div>
+      </div>
+      <div class="def-card accent-navy">
+        <div class="def-term">Public-Private Partnership</div>
+        <div class="def-abbr">P3 (in practice: P3+)</div>
+        <div class="def-text">A financing structure combining multiple levels of public funding (federal, state, local) with private capital. Built from tax credits, grants, foundation dollars, bond issuance, revolving loans, and other sources. Called P3+ because successful community development deals require far more than two partners.</div>
+      </div>
+      <div class="def-card accent-gold">
+        <div class="def-term">CDFI</div>
+        <div class="def-abbr">Community Development Financial Institution</div>
+        <div class="def-text">A mission-driven lender certified by the U.S. Treasury that provides below-market debt to fill capital gaps in low-income communities. CDFIs can offer flexible terms conventional lenders cannot because their investors prioritize community impact. Key gap-fill partner for OZ equity stacks — provides the debt layer that QOFs cannot.</div>
+      </div>
+      <div class="def-card accent-gold">
+        <div class="def-term">On-Balance Sheet Loan Fund</div>
+        <div class="def-text">A lending structure where the institution holds loans on its own books, bears the default risk, and can offer below-market rates and flexible terms. Contrasts with off-balance sheet structures where loans are packaged and sold. Allows a mission-driven lender to fill gaps that conventional banks decline.</div>
+      </div>
+    </div>
+
+    <h2 class="subheading">Organizational Structures</h2>
+    <div class="def-grid">
+      <div class="def-card accent-teal">
+        <div class="def-term">Public Benefit Corporation</div>
+        <div class="def-abbr">PBC</div>
+        <div class="def-text">A for-profit legal entity chartered to pursue both financial returns and a defined social mission. Directors are legally protected — and required — to balance profit against community outcomes without being sued by shareholders. Enables raising private equity capital while maintaining mission guardrails. OPAL Investments, BC is this structure.</div>
+      </div>
+      <div class="def-card accent-teal">
+        <div class="def-term">Nonprofit Family of Companies</div>
+        <div class="def-text">A model where a 501(c)(3) nonprofit serves as parent, with for-profit and mission-driven subsidiaries underneath. Allows full capital stack assembly under one mission-aligned roof. The OPAL model: nonprofit parent → public benefit corporation (equity) → registered investment adviser + CDFI loan fund (debt).</div>
+      </div>
+    </div>
+
+    <h2 class="subheading">Planning Concepts</h2>
+    <div class="def-grid">
+      <div class="def-card accent-coral">
+        <div class="def-term">Place-Based Community Development</div>
+        <div class="def-text">Strategies tailored to a specific geography that leverage local strengths, assets, and community priorities rather than applying top-down solutions. Emphasizes collaboration with actual residents and stakeholders. Opportunity Zones are a place-based policy instrument — the question is whether investment serves the place's existing residents.</div>
+      </div>
+      <div class="def-card accent-coral">
+        <div class="def-term">Placemaking</div>
+        <div class="def-text">A people-centered approach to planning public spaces that prioritizes community engagement, local identity, and well-being. Integrates cultural, social, and economic dimensions. Transforms underutilized areas into vibrant, inclusive places. Core principle: <em>the community is the expert.</em></div>
+      </div>
+      <div class="def-card accent-coral">
+        <div class="def-term">Community Prospectus</div>
+        <div class="def-text">An EPA-proposed seven-step planning document to guide sustainable and equitable OZ investment: (1) mobilize stakeholders, (2) define community goals, (3) identify assets and challenges, (4) prioritize projects, (5) identify investment strategies, (6) identify financing, (7) market the prospectus to investors.</div>
+      </div>
+      <div class="def-card accent-navy">
+        <div class="def-term">The Dead Zone</div>
+        <div class="def-text">The implementation gap between OZ 1.0 (TCJA 2017) and OZ 2.0 (OBBBA 2025). New designations take effect January 1, 2027. This window is an opportunity — not a problem — for municipalities to prepare census tracts, build stakeholder networks, and create investable project pipelines before capital begins to flow.</div>
+        <div class="def-tag tag-update">Opportunity window: now–Jan 2027</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ MATRIX -->
+  <section id="matrix" class="tab-panel">
+    <p class="section-eyebrow">Section 02</p>
+    <h1 class="section-title">Planning Matrix</h1>
+    <p class="section-intro">Opportunity Zone development strategies by place type. This matrix provides suggested interventions — not an exhaustive list. Match your place type to identify the highest-leverage actions.</p>
+
+    <div class="callout navy">
+      <div class="callout-label">How to use this matrix</div>
+      <p>Find your place type across the top. Read down to identify applicable strategies. Most communities will benefit from all four strategy rows, but the specific tools within each row will vary significantly by place type and local capacity.</p>
+    </div>
+
+    <div class="matrix-wrap">
+      <table class="matrix-table">
+        <thead>
+          <tr>
+            <th>Strategy Category</th>
+            <th>Medium Cities<br><small style="font-weight:300;letter-spacing:0">50,000–150,000</small></th>
+            <th>Distressed Suburban</th>
+            <th>Small Rural</th>
+            <th>State Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Development Approval</td>
+            <td>
+              <span class="matrix-tag">Accelerated permitting</span>
+              <span class="matrix-tag">Reduce parking mins</span>
+              <span class="matrix-tag">In-lieu parking fees</span>
+              <span class="matrix-tag">Development agreements</span>
+              <span class="matrix-tag">Sustainable dev code</span>
+            </td>
+            <td>
+              <span class="matrix-tag">Accelerated permitting</span>
+              <span class="matrix-tag">In-lieu parking fees</span>
+              <span class="matrix-tag">Development agreements</span>
+              <span class="matrix-tag">Sustainable dev code</span>
+            </td>
+            <td>
+              <span class="matrix-tag">Accelerated permitting</span>
+              <span class="matrix-tag">In-lieu parking fees</span>
+              <span class="matrix-tag">Development agreements</span>
+              <span class="matrix-tag">Sustainable dev code</span>
+            </td>
+            <td>
+              <span class="matrix-tag">Qualified Allocation Plans (LIHTC)</span>
+            </td>
+          </tr>
+          <tr>
+            <td>Placemaking</td>
+            <td>
+              <span class="matrix-tag">Community engagement</span>
+              <span class="matrix-tag">Evaluate local assets</span>
+              <span class="matrix-tag">Map infill properties</span>
+            </td>
+            <td>
+              <span class="matrix-tag">Community engagement</span>
+              <span class="matrix-tag">Evaluate local assets</span>
+            </td>
+            <td>
+              <span class="matrix-tag">Community engagement</span>
+              <span class="matrix-tag">Evaluate local assets</span>
+              <span class="matrix-tag">Map infill properties</span>
+            </td>
+            <td>
+              <span class="matrix-tag">Leverage state tools</span>
+            </td>
+          </tr>
+          <tr>
+            <td>Place-Based Economic</td>
+            <td>
+              <span class="matrix-tag">Industry clustering</span>
+              <span class="matrix-tag">Regional economy</span>
+              <span class="matrix-tag">Workforce training</span>
+              <span class="matrix-tag">Business incubators</span>
+              <span class="matrix-tag">Opportunity Zones</span>
+            </td>
+            <td>
+              <span class="matrix-tag">Transport to job centers</span>
+              <span class="matrix-tag">Recreation as transit</span>
+              <span class="matrix-tag">Opportunity Zones</span>
+            </td>
+            <td>
+              <span class="matrix-tag">Recreation as transit</span>
+              <span class="matrix-tag">Opportunity Zones</span>
+            </td>
+            <td>
+              <span class="matrix-tag">Leverage state tools</span>
+            </td>
+          </tr>
+          <tr>
+            <td>Financing</td>
+            <td>
+              <span class="matrix-tag">Opportunity Funds</span>
+              <span class="matrix-tag">P3s</span>
+              <span class="matrix-tag">Foundation grants</span>
+              <span class="matrix-tag">State revolving funds</span>
+              <span class="matrix-tag">NMTC</span>
+              <span class="matrix-tag">LIHTC</span>
+              <span class="matrix-tag">Tax Increment Financing</span>
+              <span class="matrix-tag">Historic Tax Credits</span>
+            </td>
+            <td>
+              <span class="matrix-tag">Opportunity Funds</span>
+              <span class="matrix-tag">Foundation grants</span>
+              <span class="matrix-tag">State revolving funds</span>
+              <span class="matrix-tag">NMTC</span>
+              <span class="matrix-tag">LIHTC</span>
+              <span class="matrix-tag">Tax Increment Financing</span>
+            </td>
+            <td>
+              <span class="matrix-tag">Opportunity Funds</span>
+              <span class="matrix-tag">Foundation grants</span>
+              <span class="matrix-tag">State revolving funds</span>
+              <span class="matrix-tag">NMTC</span>
+              <span class="matrix-tag">LIHTC</span>
+              <span class="matrix-tag">Tax Increment Financing</span>
+            </td>
+            <td>
+              <span class="matrix-tag">State revolving funds</span>
+              <span class="matrix-tag">Technical assistance for SRF</span>
+              <span class="matrix-tag">Align state tax credits</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout gold">
+      <div class="callout-label">Key insight — local investment is the catalyst</div>
+      <p>Alex Flachsbart (Opportunity Alabama): <strong>"The cavalry is not coming over the hill."</strong> Designation alone does not bring investment. Local investment, local people, and local project pipelines are what unlocked OZ success in Birmingham and Erie. National capital follows credible local leadership — it does not arrive on its own.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ ACTIONS -->
+  <section id="actions" class="tab-panel">
+    <p class="section-eyebrow">Section 03</p>
+    <h1 class="section-title">Action Steps for Planners</h1>
+    <p class="section-intro">Near-term actions your municipality can take now — before new OZ designations take effect January 1, 2027. These steps build the foundation for investment-ready census tracts regardless of whether your community is ultimately designated.</p>
+
+    <div class="callout">
+      <div class="callout-label">The window is now</div>
+      <p>The "dead zone" between OZ 1.0 expiration and OZ 2.0 designation is an opportunity, not a gap. Communities that use this time to prepare will be positioned to attract investment the moment new designations are announced. Those that wait will compete for investor attention from a standing start.</p>
+    </div>
+
+    <ul class="steps-list">
+      <li class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Map your qualifying census tracts</div>
+          <div class="step-desc">Identify which census tracts in your city or region are likely to qualify under OZ 2.0 income thresholds (below 70% of median state or metro area income, or 20% poverty rate with 125% of median income). Begin building a picture of what investment those tracts could absorb.</div>
+          <div class="step-tools">
+            <a href="https://www.hud.gov/opportunity-zones" class="actions-tool-pill" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+              HUD OZ Mapping Tool
+            </a>
+            <a href="https://www.census.gov/programs-surveys/acs/data.html" class="actions-tool-pill" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+              Census Bureau ACS Data
+            </a>
+            <a href="https://www.novoco.com/resource-centers/opportunity-zones-resource-center/novogradac-opportunity-zones-20-mapping-tool?gad_source=1&gad_campaignid=21225536154&gbraid=0AAAAAD1PQmb8j8zcK3qBtMxl9j39gXj8F&gclid=CjwKCAjw1tLOBhAMEiwAiPkRHgN81OiyHVQIe72f8H3ThZ0HfgG-poKMqT2-IAPJDQDa9wIEQixahxoCzIAQAvD_BwE" class="actions-tool-pill" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+              Novogradac OZ Map
+          </div>
+        </div>
+      </li>
+      <li class="step-item">
+        <div class="step-num teal">2</div>
+        <div class="step-body">
+          <div class="step-title">Conduct a community prospectus process</div>
+          <div class="step-desc">Use the EPA's seven-step community prospectus framework to document your community's goals, assets, challenges, and investable projects. This document educates potential investors and demonstrates community readiness — it is the planner's most direct tool for shaping what investment looks like.</div>
+          <div class="step-tools">
+            <span class="tool-pill">EPA Community Prospectus Guide</span>
+            <span class="tool-pill">Stakeholder engagement</span>
+            <span class="tool-pill">Asset mapping</span>
+          </div>
+        </div>
+      </li>
+      <li class="step-item">
+        <div class="step-num teal">3</div>
+        <div class="step-body">
+          <div class="step-title">Remove barriers to investment</div>
+          <div class="step-desc">Developers are acutely sensitive to project delay costs. Accelerated permitting processes and reduced or eliminated parking minimums are two of the highest-leverage actions a municipality can take. Every month shaved from a permitting timeline and every parking space eliminated from a project requirement directly improves developer feasibility calculations.</div>
+          <div class="step-tools">
+            <span class="tool-pill">Permitting reform</span>
+            <span class="tool-pill">Parking minimum reduction</span>
+            <span class="tool-pill">In-lieu parking fees</span>
+            <span class="tool-pill">Sustainable dev code</span>
+          </div>
+        </div>
+      </li>
+      <li class="step-item">
+        <div class="step-num gold">4</div>
+        <div class="step-body">
+          <div class="step-title">Build your stakeholder network</div>
+          <div class="step-desc">Identify and connect with your local CDFI, regional foundations, state housing finance agency, economic development partners, Main Street program, and any CDEs active in your area. OZ projects are assembled from many funding sources — the relationships that make capital stacking possible take time to build. Start now.</div>
+          <div class="step-tools">
+            <span class="tool-pill">Local CDFI</span>
+            <span class="tool-pill">State housing finance agency</span>
+            <span class="tool-pill">Regional foundations</span>
+            <span class="tool-pill">NMTC CDEs</span>
+            <span class="tool-pill">Main Street Alabama / America</span>
+          </div>
+        </div>
+      </li>
+      <li class="step-item">
+        <div class="step-num gold">5</div>
+        <div class="step-body">
+          <div class="step-title">Identify and prepare investable projects</div>
+          <div class="step-desc">Review your comprehensive plan and existing city assets for redevelopment potential. Identify underutilized properties, vacant buildings with historic potential, infill development sites, and community facilities needing capital. Work with the PDAP (Property Development Assistance Program) model to move projects from concept to construction-ready.</div>
+          <div class="step-tools">
+            <span class="tool-pill">Comprehensive plan review</span>
+            <span class="tool-pill">Historic property inventory</span>
+            <span class="tool-pill">Infill site mapping</span>
+            <span class="tool-pill">Pro forma development</span>
+          </div>
+        </div>
+      </li>
+      <li class="step-item">
+        <div class="step-num coral">6</div>
+        <div class="step-body">
+          <div class="step-title">Evaluate your capital stack options</div>
+          <div class="step-desc">For each priority project, evaluate which combination of financing tools applies: OZ equity, LIHTC, NMTC, HTC, state revolving funds, Tax Increment Financing, foundation grants, and CDFI gap financing. The planning matrix (see Matrix tab) guides which tools are most applicable by place type. No single tool is sufficient alone.</div>
+          <div class="step-tools">
+            <span class="tool-pill">OZ equity</span>
+            <span class="tool-pill">LIHTC (9% or 4%)</span>
+            <span class="tool-pill">NMTC</span>
+            <span class="tool-pill">Historic Tax Credits</span>
+            <span class="tool-pill">TIF</span>
+            <span class="tool-pill">CDFI gap debt</span>
+          </div>
+        </div>
+      </li>
+      <li class="step-item">
+        <div class="step-num coral">7</div>
+        <div class="step-body">
+          <div class="step-title">Advocate for model legislation</div>
+          <div class="step-desc">Support state and federal legislation that strengthens the equity of OZ 2.0: reinstatement of Historic Tax Credit enhancements, Green and Resilient Retrofit funding, Neighborhood Access and Equity grants, Environmental and Climate Justice Block Grants. Also advocate for nonprofit direct payment provisions that allow community ownership stakes within OZ capital stacks.</div>
+          <div class="step-tools">
+            <span class="tool-pill">H.R. 2941 (HTC enhancement)</span>
+            <span class="tool-pill">Community ownership provisions</span>
+            <span class="tool-pill">State tax credit alignment</span>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ STATUS -->
+  <section id="status" class="tab-panel">
+    <p class="section-eyebrow">Section 04</p>
+    <h1 class="section-title">Post-OBBBA Tool Status</h1>
+    <p class="section-intro">The One Big Beautiful Bill Act (signed July 4, 2025) significantly changed the development finance landscape. This table reflects the current status of key tools as of April 2026.</p>
+
+    <div class="callout">
+      <div class="callout-label">Net assessment</div>
+      <p>The core community development finance toolkit is more stable post-OBBBA than many analysts initially feared. OZs, LIHTC, NMTC, and HTC are all permanent and in some cases strengthened. The real loss is on the green building and clean energy side — which creates a genuine challenge for planners trying to build sustainable, resilient projects and will require creative financing solutions at the local level.</p>
+    </div>
+
+    <table class="status-table">
+      <thead>
+        <tr>
+          <th>Tool</th>
+          <th>Status</th>
+          <th>Key Change</th>
+          <th>Planner Relevance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Opportunity Zones (OZ 2.0)</strong></td>
+          <td><span class="status-badge badge-permanent">Permanent</span></td>
+          <td>Redesignated every 10 years; tightened income thresholds; rural OZ bonus (30% step-up); adjacent tract rule eliminated</td>
+          <td>New designations effective Jan 1, 2027. Dead zone window is now.</td>
+        </tr>
+        <tr>
+          <td><strong>LIHTC (9% allocations)</strong></td>
+          <td><span class="status-badge badge-enhanced">Enhanced</span></td>
+          <td>12% permanent increase in state allocations starting 2026; bond financing threshold cut from 50% to 25%</td>
+          <td>More projects fundable per state cap; 1.22M new affordable units projected by 2035</td>
+        </tr>
+        <tr>
+          <td><strong>New Markets Tax Credit</strong></td>
+          <td><span class="status-badge badge-permanent">Permanent</span></td>
+          <td>Made permanent at $5B/year; no longer requires periodic reauthorization by Congress</td>
+          <td>Stable gap-fill for commercial, mixed-use, and community facility projects</td>
+        </tr>
+        <tr>
+          <td><strong>Historic Tax Credit (§47)</strong></td>
+          <td><span class="status-badge badge-unchanged">Unchanged</span></td>
+          <td>Not addressed by OBBBA — remains at 20% credit, fully available. H.R. 2941 (2025) proposes enhancements.</td>
+          <td>Active capital stacking partner for OZ and NMTC deals in historic structures</td>
+        </tr>
+        <tr>
+          <td><strong>Bonus Depreciation</strong></td>
+          <td><span class="status-badge badge-permanent">Permanent</span></td>
+          <td>100% restored permanently for property placed in service after Jan 19, 2025</td>
+          <td>Front-loads tax losses for LIHTC/OZ investors; improves equity pricing and deal returns</td>
+        </tr>
+        <tr>
+          <td><strong>Energy Efficient Home Improvement Credit (25C)</strong></td>
+          <td><span class="status-badge badge-ended">Ended</span></td>
+          <td>Terminated December 31, 2025</td>
+          <td>Green retrofit financing harder to stack; local solutions required</td>
+        </tr>
+        <tr>
+          <td><strong>Residential Clean Energy Credit (25D)</strong></td>
+          <td><span class="status-badge badge-ended">Ended</span></td>
+          <td>Terminated December 31, 2025</td>
+          <td>Solar, geothermal, wind for residential — no longer federally subsidized</td>
+        </tr>
+        <tr>
+          <td><strong>179D Commercial Energy Deduction</strong></td>
+          <td><span class="status-badge badge-ended">Ending</span></td>
+          <td>Eliminated for construction beginning after June 30, 2026</td>
+          <td>Commercial green building deduction window closing — act before July 2026</td>
+        </tr>
+        <tr>
+          <td><strong>Electric Vehicle Credits</strong></td>
+          <td><span class="status-badge badge-ended">Ended</span></td>
+          <td>Terminated September 30, 2025</td>
+          <td>EV fleet electrification for municipalities loses federal subsidy</td>
+        </tr>
+        <tr>
+          <td><strong>Green &amp; Resilient Retrofit Program</strong></td>
+          <td><span class="status-badge badge-ended">Rescinded</span></td>
+          <td>Funding rescinded under OBBBA</td>
+          <td>Multifamily energy retrofit financing gap — advocates seeking reinstatement</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout coral">
+      <div class="callout-label">Sustainability challenge</div>
+      <p>The elimination of green building incentives creates a direct tension with equitable and sustainable OZ development. Planners should advocate for local and state green financing tools to fill the gap, and explore whether district-scale solutions (geothermal, waste heat, community solar) can substitute for individual building incentives that no longer exist federally.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ OPAL -->
+  <section id="opal" class="tab-panel">
+    <p class="section-eyebrow">Section 05</p>
+    <h1 class="section-title">The OPAL Model</h1>
+    <p class="section-intro">Opportunity Alabama (OPAL) in Birmingham, AL, is the most cited OZ 1.0 success story and the most replicable model for planners. It placed Alabama in the top ten for OZ investment nationally by building a mission-driven organizational structure that could assemble the full capital stack internally.</p>
+
+    <div class="org-chart" aria-label="OPAL corporate structure diagram">
+      <div class="org-parent">
+        Opportunity Alabama, Inc.
+        <span class="org-parent-sub">501(c)(3) nonprofit parent · Founded 2018 · Birmingham, AL</span>
+      </div>
+      <div class="org-connector"></div>
+      <div class="org-branches">
+        <div class="org-child teal">
+          <div class="org-child-title">OPAL Investments, BC<br>+ OPAL Advisory, LLC</div>
+          <div class="org-child-type">Public Benefit Corporation + Registered Investment Adviser</div>
+          <ul class="org-child-items">
+            <li>OZ equity formation</li>
+            <li>Historic Tax Credit equity</li>
+            <li>Mezzanine debt</li>
+            <li>Common equity investments</li>
+            <li>Investment advisory services</li>
+            <li>CRA credit for bank partners</li>
+          </ul>
+        </div>
+        <div class="org-child gold">
+          <div class="org-child-title">OPAL Community Capital, LLC</div>
+          <div class="org-child-type">Certified CDFI · On-Balance Sheet Loan Fund</div>
+          <ul class="org-child-items">
+            <li>Below-market gap financing</li>
+            <li>Bridge debt for HTC deals</li>
+            <li>Match requirement fulfillment</li>
+            <li>CRA credit for banking partners</li>
+            <li>Technical assistance for developers</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout gold">
+      <div class="callout-label">Why this structure works</div>
+      <p>OPAL can assemble the full capital stack — OZ equity, HTC equity, mezzanine debt, and below-market CDFI gap financing — through a single relationship with a mission-aligned organization. For a developer working in distressed communities, this dramatically reduces transaction costs and closes deals that would otherwise fall apart assembling six to eight separate funding sources. The nonprofit parent provides mission accountability; the PBC subsidiary enables profit-seeking equity; the CDFI fills the gap no conventional lender will touch.</p>
+    </div>
+
+    <h2 class="subheading">Key Lessons for Planners</h2>
+    <ul class="steps-list">
+      <li class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Local investment unlocks national capital</div>
+          <div class="step-desc">Alabama Power, Regions Bank, and local philanthropic entities were the founding partners of Opportunity Alabama. Their local credibility and commitment signaled to national investors that the organization and its projects were real. National OZ capital follows credible local institutions — it rarely leads.</div>
+        </div>
+      </li>
+      <li class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">The CDFI fills the gap the QOF cannot</div>
+          <div class="step-desc">OZ equity is structurally required to be equity — it cannot be structured as a low-interest loan from the fund itself. But a CDFI operating alongside the OZ fund can provide the below-market debt layer that fills match requirements for state revolving funds, federal grants, and other programs requiring local match. This is the structural innovation OPAL embodies.</div>
+        </div>
+      </li>
+      <li class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Technical assistance is as important as capital</div>
+          <div class="step-desc">OPAL's Property Development Assistance Program (PDAP) helps emerging developers navigate pre-development planning, budgeting, pro forma creation, and capital stacking — before any money is committed. Getting projects to investable condition is where planners and CDFIs add the most value, because capital cannot flow to projects that aren't ready to receive it.</div>
+        </div>
+      </li>
+    </ul>
+
+    <div class="callout">
+      <div class="callout-label">Impact to date</div>
+      <p>OPAL has facilitated <strong>$600M+ in new investment</strong> across <strong>40 Alabama communities</strong>, developing <strong>1.5M+ square feet</strong> of real estate. Their board includes representation from Regions Bank, Alabama Power, and the Economic Development Partnership of Alabama — demonstrating the institutional anchoring that makes mission-driven investment vehicles credible to national capital markets.</p>
+    </div>
+
+    <div class="callout navy">
+      <div class="callout-label">Can this model be replicated?</div>
+      <p>Yes — with the right local anchors. The OPAL model requires: (1) a founding nonprofit with credible mission, (2) corporate and philanthropic anchor partners willing to provide initial capital and board leadership, (3) a CDFI certification or partnership with an existing CDFI, and (4) a pipeline of investable projects. The organizational structure itself is replicable in any state. The harder work is building the local relationships and project pipeline that make investors confident enough to commit.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ BIO -->
+  <section id="bio" class="tab-panel">
+    <p class="section-eyebrow">About the Author</p>
+    <h1 class="section-title">Michael Shenk</h1>
+
+    <div class="bio-card">
+      <div class="bio-header">
+        <div class="bio-avatar">MS</div>
+        <div class="bio-name-block">
+          <div class="bio-name">Michael Shenk</div>
+          <div class="bio-title">M.P.S., Sustainable Urban Planning</div>
+          <div class="bio-institution">The George Washington University · School of Professional Studies</div>
+        </div>
+      </div>
+      <div class="bio-body">
+        <p>Michael is a planning consultant in York, Pennsylvania. His current work is informed by a background in environmental justice, having previously served as a Community Engagement Specialist for the E.J. Lab in the School of Public Health at the University of Maryland, and as an EJ Scholar with C.E.E.J.H. Michael is currently building on his data analytics skills by learning Python to further integrate advanced modeling with his GIS planning tools.</p>
+        <p>Bringing a unique interdisciplinary perspective to the field, Michael spent a decade as a financial advisor representative before transitioning into urban planning. This financial expertise, combined with his Master of Professional Studies in Sustainable Urban Planning from George Washington University, allows him to navigate the complex intersection of capital investment and community-driven outcomes. He is dedicated to advancing equitable development and sustainable growth while providing practitioners with the tools to navigate evolving policy landscapes, such as the Opportunity Zones 2.0 framework.</p>
+        <p>He is the father of three daughters, and cites them as the reason he has dedicated his career to working on the long-term challenges of climate change, equitable development, and sustainable communities.</p>
+
+        <div class="bio-contact-row">
+          <a href="mailto:rmshenk@gmail.com" class="bio-contact-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+            Email Michael
+          </a>
+          <a href="https://www.linkedin.com/in/robert-michael-shenk/" class="bio-contact-pill" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://www.cps.gwu.edu/sup" class="bio-contact-pill" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            GWU Planning
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="subheading">About This Research</h2>
+
+    <div class="research-card">
+      <div class="research-title">Unpacking Opportunity Zones 2.0 for Planners</div>
+      <div class="research-meta">Capstone Paper · GWU Sustainable Urban Planning Program · August 2025 · Updated April 2026</div>
+      <div class="research-desc">This paper investigates the changes to Opportunity Zones under the One Big Beautiful Bill Act and proposes near-term actions planners can take to make census tracts investment-ready in a sustainable and equitable way. Drawing on gray literature, practitioner interviews, and case studies from Birmingham AL, Erie PA, Dolton IL, and Buckhannon WV, the paper develops a planning matrix and model legislation proposals aimed at ensuring OZ 2.0 investment serves existing residents.</div>
+    </div>
+
+    <div class="research-card gold">
+      <div class="research-title">Acknowledgements</div>
+      <div class="research-meta">GWU Faculty</div>
+      <div class="research-desc">This research was made possible with the guidance and support of John Thomas, Ph.D.; Sandra Whitehead, Ph.D.; Joseph Schilling, J.D.; Emily Suter, DrPH, MPH, MSP; and Virginia Shenk. The author also acknowledges the practitioners whose work on the ground, particularly Alex Flachsbart and the Opportunity Alabama team, provided important insights in this research.</div>
+    </div>
+
+    <div class="callout gold" style="margin-top: 28px;">
+      <div class="callout-label">A note on this reference site</div>
+      <p>This site was built as a companion resource for the National Planning Conference presentation on April 25, 2026. All content reflects research completed in August 2025 with updates through April 2026 to reflect final OBBBA guidance and corrections to the original paper — most notably the status of the Historic Tax Credit, which was not eliminated by OBBBA as initially feared during the legislative debate.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p><strong style="color:#fff">Unpacking Opportunity Zones 2.0 for Sustainability and Equity
+***
+</strong></p>
+  <p>Michael Shenk · GWU Sustainable Urban Planning Program · August 2025 (updated April 2026)</p>
+  <p style="margin-top:8px">National Planning Conference · April 25, 2026</p>
+  <p style="margin-top:12px; font-size:0.75rem">This reference is provided for informational purposes. Consult legal and financial professionals before making investment or development finance decisions.</p>
+</footer>
+
+<script>
+  function showTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
